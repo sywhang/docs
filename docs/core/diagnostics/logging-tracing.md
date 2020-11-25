@@ -41,13 +41,13 @@ The choice of which print style API to use is up to you. The key differences are
 
 ### Logging events
 
-The following APIs are more event oriented. Rather than logging simple strings they log event objects.
+The following APIs are more event oriented. These APIs allow you to log custom structured objects instead of simple strings and can be useful for logging.
 
 - <xref:System.Diagnostics.Tracing.EventSource?displayProperty=nameWithType>
   - EventSource is the primary root .NET Core tracing API.
   - Available in all .NET Standard versions.
   - Only allows tracing serializable objects.
-  - Can be consumed in-process via any [EventListener](xref:System.Diagnostics.Tracing.EventListener) instances configured to consume the EventSource.
+  - Can be consumed in-process with [EventListeners](eventlisteners.md).
   - Can be consumed out-of-process via:
     - [.NET Core's EventPipe](./eventpipe.md) on all platforms
     - [Event Tracing for Windows (ETW)](/windows/win32/etw/event-tracing-portal)
@@ -64,8 +64,9 @@ The following APIs are more event oriented. Rather than logging simple strings t
 
 - <xref:System.Diagnostics.EventLog?displayProperty=nameWithType>
   - Windows only.
-  - Writes messages to the Windows Event Log.
+  - Writes messages to the [Windows Event Log](https://docs.microsoft.com/en-us/windows/win32/wes/windows-event-log).
   - System administrators expect fatal application error messages to appear in the Windows Event Log.
+  - The .NET runtime also may write error messages to Windows Event Log upon fatal error.
 
 ## ILogger and logging frameworks
 
