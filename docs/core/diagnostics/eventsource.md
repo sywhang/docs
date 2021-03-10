@@ -13,6 +13,9 @@ This documentation explains the overall concept of EventSource, how to write you
 
 ## Writing your own EventSource
 
+Here is a simple example of an EventSource:
+
+
 
 ## Consuming events written from your EventSource
 
